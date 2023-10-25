@@ -4,7 +4,7 @@
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class BaseCache(BaseCaching):
+class BasicCache(BaseCaching):
     """Basic cache class"""
 
     def put(self, key, item):
@@ -15,7 +15,7 @@ class BaseCache(BaseCaching):
     def get(self, key):
         """Get an item by key"""
         if key is not None:
-            return self.cache_data(key)
+            return self.cache_data.get(key)
         return None
 
     if __name__ == '__main__':
