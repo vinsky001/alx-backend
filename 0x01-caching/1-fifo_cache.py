@@ -1,4 +1,4 @@
-i#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 First in First out cache replacement algorithm
 """
