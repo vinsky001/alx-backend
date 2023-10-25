@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+i#!/usr/bin/env python3
 """
 First in First out cache replacement algorithm
 """
@@ -12,8 +12,8 @@ class FIFOCache(BaseCaching):
 
     def __init__(self):
         """Initialize"""
-        super().__init__():
-            self.keys = []
+        super().__init__()
+        self.keys = []
 
     def put(self, key, item):
         """ Add an item in the cache"""
