@@ -17,13 +17,15 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """ Add an item in the cache"""
-        if key and item is None:
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                # Find and remove the first item added (FIFO)
-                first_key = next(iter(self.cache_data))
-                del self.cache_data[first_key]
-                print(f"DISCARD: {first_key}")
+        if key and item is not None:
+            if key in self.keys:
+                self.keys.remove(key)
+            self.keys.append(key)
             self.cache_data[key] = item
+            if len(self.keys) > BaseCaching.MAX_ITEMS:
+                discard = self.keys.pop(0)
+                del self.cache_data[discard]
+                print("DISCARD: {}".format(discard))
 
     def get(self, key):
         """Get an item by key"""
